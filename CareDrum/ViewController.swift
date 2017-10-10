@@ -16,9 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var addressPrimary: UITextField!
     
-    var vFirstName: String
+    let publicDB = CKContainer.default().publicCloudDatabase
+    let privateDB = CKContainer.default().privateCloudDatabase
+    let instuff = "This is content"
     
-    let database = CKContainer.default().publicCloudDatabase
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,22 +30,30 @@ class ViewController: UIViewController {
   
     @IBAction func registerPatientAndCaregiver(_ sender: Any) {
         let theRegistrant = CKRecord(recordType: "Caregiver")
-        theRegistrant.setValue("Guy 01", forKey: "Prenom")
-        database.save(theRegistrant) { (record, _) in
-            guard record != nil else {return}
-            print("Print registration")
+        print("Show values, FIRST NAME IS: \(firstName), the instuff: \(instuff), the registrant: \(theRegistrant)")
+        theRegistrant.setValue(instuff, forKey: "Prenom")
+        print("SECOND theRegistrant \(theRegistrant)")
+        privateDB.save(theRegistrant) { (record, _) in
+                guard record != nil else { print("The record is: \(String(describing: record))")
+                return}
+                print("Print registration")
+            }
+            
         }
-        
+    
+     
+    
+  @IBAction func clearValues(_ sender: Any) {
+        print("Show values, first name is: \(firstName)")
     }
     
-    
-    @IBAction func addServiceRequest(_ sender: Any) {
+  @IBAction func addServiceRequest(_ sender: Any) {
         print("In Add Service Request")
     }
     
     
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+       super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
