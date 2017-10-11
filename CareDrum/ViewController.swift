@@ -33,7 +33,8 @@ class ViewController: UIViewController {
         print("Show values, FIRST NAME IS: \(firstName), the instuff: \(instuff), the registrant: \(theRegistrant)")
         theRegistrant.setValue(instuff, forKey: "Prenom")
         print("SECOND theRegistrant \(theRegistrant)")
-        privateDB.save(theRegistrant) { (record, _) in
+        
+        self.privateDB.save(theRegistrant) { (record, _) in
                 guard record != nil else { print("The record is: \(String(describing: record))")
                 return}
                 print("Print registration")
