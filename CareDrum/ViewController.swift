@@ -15,10 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var addressPrimary: UITextField!
+    @IBOutlet weak var licenseNumber: UITextField!
     
     let publicDB = CKContainer.default().publicCloudDatabase
     let privateDB = CKContainer.default().privateCloudDatabase
-    let instuff = "This is content"
+    let instuff = "Am Caregiver"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +31,17 @@ class ViewController: UIViewController {
   
     @IBAction func registerPatientAndCaregiver(_ sender: Any) {
         let theRegistrant = CKRecord(recordType: "Caregiver")
-        print("Show values, FIRST NAME IS: \(firstName), the instuff: \(instuff), the registrant: \(theRegistrant)")
-        theRegistrant.setValue(instuff, forKey: "Prenom")
-        print("SECOND theRegistrant \(theRegistrant)")
+        print("FIRST: Show initial values of THE REGISTRANT: \(theRegistrant)")
+        theRegistrant.setValue(firstName.text, forKey: "FirstName")
+        theRegistrant.setValue(lastName.text, forKey: "LastName")
+        theRegistrant.setValue(licenseNumber.text, forKey: "CaregiverID")
+        print("SECOND: Show assigned values of THE REGISTRANT: \(theRegistrant)")
         
-        self.privateDB.save(theRegistrant) { (record, _) in
+        publicDB.save(theRegistrant) { (record, _) in
+        //    print("Error is: \(error)")
                 guard record != nil else { print("The record is: \(String(describing: record))")
                 return}
-                print("Print registration")
+                print("Print recond saved")
             }
             
         }
