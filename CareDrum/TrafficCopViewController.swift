@@ -17,10 +17,12 @@ class TrafficCopViewController: UIViewController {
     }
 
     @IBAction func careRequest(_ sender: Any) {
-        
 
     }
     
+    @IBAction func signUp(_ sender: Any) {
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
