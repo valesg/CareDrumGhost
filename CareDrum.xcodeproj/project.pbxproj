@@ -18,6 +18,7 @@
 		E93EC26C1F94F46D0085B19E /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EC26B1F94F46D0085B19E /* SignViewController.swift */; };
 		E93EC26E1F94F5A70085B19E /* CareRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EC26D1F94F5A70085B19E /* CareRequestViewController.swift */; };
 		E93EC2701F94F79D0085B19E /* TrafficCopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EC26F1F94F79D0085B19E /* TrafficCopViewController.swift */; };
+		E93EC2721F956E1F0085B19E /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EC2711F956E1F0085B19E /* AppSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		E93EC26B1F94F46D0085B19E /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		E93EC26D1F94F5A70085B19E /* CareRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareRequestViewController.swift; sourceTree = "<group>"; };
 		E93EC26F1F94F79D0085B19E /* TrafficCopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficCopViewController.swift; sourceTree = "<group>"; };
+		E93EC2711F956E1F0085B19E /* AppSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				E934BE2E1F8BFBF2003CA990 /* ViewController.swift */,
 				E93EC26B1F94F46D0085B19E /* SignViewController.swift */,
 				E93EC26D1F94F5A70085B19E /* CareRequestViewController.swift */,
+				E93EC2711F956E1F0085B19E /* AppSettingsViewController.swift */,
 				E934BE301F8BFBF2003CA990 /* Main.storyboard */,
 				E934BE331F8BFBF2003CA990 /* Assets.xcassets */,
 				E934BE351F8BFBF2003CA990 /* LaunchScreen.storyboard */,
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E934BE2F1F8BFBF2003CA990 /* ViewController.swift in Sources */,
+				E93EC2721F956E1F0085B19E /* AppSettingsViewController.swift in Sources */,
 				E93EC26E1F94F5A70085B19E /* CareRequestViewController.swift in Sources */,
 				E93EC26C1F94F46D0085B19E /* SignViewController.swift in Sources */,
 				E934BE2D1F8BFBF2003CA990 /* AppDelegate.swift in Sources */,

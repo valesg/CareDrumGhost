@@ -1,5 +1,5 @@
 //
-//  TrafficCopViewController.swift
+//  AppSettingsViewController.swift
 //  CareDrum
 //
 //  Created by Guy Vales on 2017-10-16.
@@ -7,9 +7,8 @@
 //
 
 import UIKit
-var onduty = "yes"
 
-class TrafficCopViewController: UIViewController {
+class AppSettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,13 +16,10 @@ class TrafficCopViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func careRequest(_ sender: Any) {
-        performSegue(withIdentifier: "coptoreq", sender: self)
+    @IBAction func resetSettings(_ sender: Any) {
+
     }
     
-    @IBAction func signUp(_ sender: Any) {
-        
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
