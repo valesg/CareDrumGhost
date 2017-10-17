@@ -13,7 +13,7 @@ class CareRequestViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBOutlet weak var requestedServicePicker: UIPickerView!
     var chosenCare: String = ""
     
-    let careservices = ["Blood Work", "Toiletting", "Dressing"]
+    let careservices = ["Blood Work", "Toiletting", "Dressing", "Vaccination", "Nutrition", "Multi Tasks", "Other"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
