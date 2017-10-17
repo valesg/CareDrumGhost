@@ -17,7 +17,7 @@ class AppSettingsViewController: UIViewController {
     }
 
     @IBAction func resetSettings(_ sender: Any) {
-
+        performSegue(withIdentifier: "settingstowelcome", sender: self)
     }
     
     
