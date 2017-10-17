@@ -8,8 +8,31 @@
 
 import UIKit
 
-class CareRequestViewController: UIViewController {
+class CareRequestViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
+    @IBOutlet weak var requestedServicePicker: UIPickerView!
+    var chosenCare: String = ""
+    
+    let careservices = ["Blood Work", "Toiletting", "Dressing"]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return careservices[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return careservices.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        chosenCare = careservices[row]
+        print("Chosen Care is: \(chosenCare)")
+        return
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
