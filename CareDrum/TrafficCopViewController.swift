@@ -28,9 +28,14 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupNavBar()
         // Do any additional setup after loading the view.
     }
 
+    func setupNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     @IBAction func careRequest(_ sender: Any) {
         performSegue(withIdentifier: "coptoreq", sender: self)
     }
