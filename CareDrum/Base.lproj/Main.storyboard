@@ -356,7 +356,7 @@ Solution: We monitor the location of a care recipient and notify caregivers or r
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Anchor Address" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vNZ-Yn-Wgs">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Residence Address" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vNZ-Yn-Wgs">
                                 <rect key="frame" x="16" y="342" width="321" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -381,6 +381,22 @@ Solution: We monitor the location of a care recipient and notify caregivers or r
                                 <color key="textColor" red="0.32420210469999999" green="0.3377360297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CM2-Sw-EXq">
+                                <rect key="frame" x="176" y="129" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eto-mR-o8c">
+                                <rect key="frame" x="200" y="598" width="163" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Try with new address"/>
+                                <connections>
+                                    <action selector="getTargetStatus:" destination="fHo-cV-C5k" eventType="touchUpInside" id="a1T-7V-xmn"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance and Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEf-kN-aU8">
                                 <rect key="frame" x="26" y="221" width="180" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -392,6 +408,13 @@ Solution: We monitor the location of a care recipient and notify caregivers or r
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2Yj-85-1pO"/>
                     </view>
+                    <connections>
+                        <outlet property="geoWarningMessage" destination="CM2-Sw-EXq" id="fgu-2E-4dL"/>
+                        <outlet property="targetAllowedDistance" destination="dGA-Lb-O5q" id="f1X-28-SoY"/>
+                        <outlet property="targetDistanceFromMainAddress" destination="RLb-qF-X8S" id="x8D-MJ-coc"/>
+                        <outlet property="targetMainAddress" destination="vNZ-Yn-Wgs" id="LAx-tL-AJi"/>
+                        <outlet property="targetOnMap" destination="irW-e3-vMr" id="gdJ-lP-dl3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvQ-ha-Jbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
