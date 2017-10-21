@@ -13,7 +13,7 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var recentCareRequestsTable: UITableView!
     
-    let recentcarerequests = ["Requestor 1, Service 1 for Date X, PENDING", "Requestor 1, Service 8 for Date X, PENDING", "Requestor 1, Service 7 for Date X, DONE", "Requestor 2, Service 2 for Date X, DONE", "Requestor 3, Service 3 for Date X, DONE", "Requestor 4, Service 4 for Date X, CANCELLED", "Requestor 4, Service 7 for Date X, DONE", "Requestor 5, Service 8 for Date X, DONE"]
+    let recentcarerequests = ["Requestor 1, S1 on Date X, PENDING", "Requestor 1, S8 on Date X, PENDING", "Requestor 1, S7 on Date X, DONE", "Requestor 2, S2 on Date X, DONE", "Requestor 3, S3 on Date X, DONE", "Requestor 4, S4 on Date X, CANCELLED", "Requestor 4, S7 on Date X, DONE", "Requestor 5, S8 on Date X, DONE"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(recentcarerequests.count)
