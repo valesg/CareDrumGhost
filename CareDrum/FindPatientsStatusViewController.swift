@@ -53,14 +53,14 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
                 print(location.distance(from: patientmainaddress))
                 self.targetDistanceFromMainAddress.text = "\(location.distance(from: patientmainaddress) / 1000)"
                 
-                let targetAllowedDistanceInt: Int? = Int(self.targetAllowedDistance.text!)
+                let targetAllowedDistanceInt: Double? = Double(self.targetAllowedDistance.text!)
                 let targetDistanceFromMainAddressInt = (location.distance(from: patientmainaddress) / 1000)
                 
                 print("Allowed Distance: \(targetAllowedDistanceInt), Current Distance as Integer: \(targetDistanceFromMainAddressInt), Current Distance as text \(self.targetDistanceFromMainAddress.text)")
                 
                 // Next If statement changes status logo based on distance
                 if targetAllowedDistanceInt != nil {
-                if Int(targetDistanceFromMainAddressInt) > targetAllowedDistanceInt! {
+                if targetDistanceFromMainAddressInt > targetAllowedDistanceInt! {
                     self.targetStatusImage.image = UIImage(named: "SaidWhatLogo") }
                     else {
                         self.targetStatusImage.image = UIImage(named: "StatusOkLight")

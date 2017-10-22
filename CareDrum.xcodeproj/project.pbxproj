@@ -24,6 +24,7 @@
 		E96503C81F9BC72200112BE6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96503C71F9BC70300112BE6 /* CoreLocation.framework */; };
 		E96503CA1F9C5D9B00112BE6 /* StatusOkLight in Resources */ = {isa = PBXBuildFile; fileRef = E96503C91F9C5D9B00112BE6 /* StatusOkLight */; };
 		E96503CF1F9C623500112BE6 /* SaidWhatLogo in Resources */ = {isa = PBXBuildFile; fileRef = E96503CE1F9C623500112BE6 /* SaidWhatLogo */; };
+		E96503D11F9CFA1900112BE6 /* PatientGeolocation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E96503D01F9CFA1800112BE6 /* PatientGeolocation.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		E96503C91F9C5D9B00112BE6 /* StatusOkLight */ = {isa = PBXFileReference; lastKnownFileType = file; path = StatusOkLight; sourceTree = "<group>"; };
 		E96503CD1F9C610B00112BE6 /* StatusNotOkLight */ = {isa = PBXFileReference; lastKnownFileType = file; path = StatusNotOkLight; sourceTree = "<group>"; };
 		E96503CE1F9C623500112BE6 /* SaidWhatLogo */ = {isa = PBXFileReference; lastKnownFileType = file; path = SaidWhatLogo; sourceTree = "<group>"; };
+		E96503D01F9CFA1800112BE6 /* PatientGeolocation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PatientGeolocation.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				E96503C91F9C5D9B00112BE6 /* StatusOkLight */,
 				E96503CD1F9C610B00112BE6 /* StatusNotOkLight */,
 				E96503CE1F9C623500112BE6 /* SaidWhatLogo */,
+				E96503D01F9CFA1800112BE6 /* PatientGeolocation.jpg */,
 				E934BE351F8BFBF2003CA990 /* LaunchScreen.storyboard */,
 				E934BE381F8BFBF2003CA990 /* Info.plist */,
 			);
@@ -283,6 +286,7 @@
 			files = (
 				E934BE371F8BFBF2003CA990 /* LaunchScreen.storyboard in Resources */,
 				E934BE341F8BFBF2003CA990 /* Assets.xcassets in Resources */,
+				E96503D11F9CFA1900112BE6 /* PatientGeolocation.jpg in Resources */,
 				E96503CF1F9C623500112BE6 /* SaidWhatLogo in Resources */,
 				E934BE321F8BFBF2003CA990 /* Main.storyboard in Resources */,
 				E96503CA1F9C5D9B00112BE6 /* StatusOkLight in Resources */,

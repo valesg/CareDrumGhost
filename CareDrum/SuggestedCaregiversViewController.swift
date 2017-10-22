@@ -31,7 +31,8 @@ class SuggestedCaregiversViewController: UIViewController {
     }
     
     @IBAction func selectDispatchCaregiver(_ sender: Any) {
-      createAlert(title: "Care Request", message: "Find and Dispatch")
+      // calling createAlert function currently gives an error. so commenting it
+        // createAlert(title: "Care Request", message: "Find and Dispatch")
     }
     
     @IBAction func addToSuggestedList(_ sender: Any) {

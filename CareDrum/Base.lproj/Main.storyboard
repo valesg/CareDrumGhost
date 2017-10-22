@@ -248,31 +248,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find Patients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttM-1U-CPY">
-                                <rect key="frame" x="48" y="89" width="123" height="27"/>
+                                <rect key="frame" x="48" y="134" width="123" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Soe-80-W3t">
-                                <rect key="frame" x="40" y="124" width="298" height="341"/>
+                                <rect key="frame" x="38" y="169" width="298" height="341"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.45023380414626868" green="1" blue="0.66026062466420621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">The problem: Some care recipients may get lost and be exposed to harm when venturing unaccompanied beyond a certain distance from their home or residence   
 
-Solution: We monitor the location of a care recipient and notify caregivers or relatives when he or she goes beyond a geographical area.  In case of emergency, we can maximize the number of "eyes" in the community by putting out alerts to hospitals, taxi companies, the media etc.  The SERVICE IS AVAILABLE ON A SUBSCRIPTION BASIS.</string>
+Solution: We monitor the location of care recipients and notify caregivers or relatives when he or she goes beyond a geographical area.  In case of emergency, we can maximize the number of "eyes" by putting out alerts to hospitals, taxi companies, the media etc.  The SERVICE IS AVAILABLE ON A SUBSCRIPTION BASIS.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sot-rk-8FG">
-                                <rect key="frame" x="48" y="555" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="10I-YF-WzS" kind="show" id="et1-W7-hVD"/>
-                                </connections>
-                            </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XEa-TA-Dpz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -281,16 +272,29 @@ Solution: We monitor the location of a care recipient and notify caregivers or r
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAl-p5-vCd">
-                                <rect key="frame" x="112" y="476" width="112" height="34"/>
+                                <rect key="frame" x="68" y="505" width="238" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="View demo"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="View Demo of Find Patients"/>
                                 <connections>
                                     <segue destination="fHo-cV-C5k" kind="show" id="9Ub-cC-iUO"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PatientGeolocation.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="iKG-JD-UmT">
+                                <rect key="frame" x="179" y="57" width="180" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sot-rk-8FG">
+                                <rect key="frame" x="38" y="575" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="10I-YF-WzS" kind="show" id="et1-W7-hVD"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.49014162121429927" green="1" blue="0.69056941305768005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Tfe-Pe-sW1"/>
                     </view>
                 </viewController>
@@ -374,7 +378,7 @@ Solution: We monitor the location of a care recipient and notify caregivers or r
                                 <rect key="frame" x="6" y="563" width="363" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Tip: Change Allowed Distance to change Status"/>
+                                <state key="normal" title="TIP: Change Allowed distance to change Status"/>
                                 <connections>
                                     <action selector="getTargetStatus:" destination="fHo-cV-C5k" eventType="touchUpInside" id="a1T-7V-xmn"/>
                                 </connections>
@@ -876,8 +880,12 @@ Solution: We monitor the location of a care recipient and notify caregivers or r
             <point key="canvasLocation" x="1176.8" y="1987.5562218890557"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PatientGeolocation.jpg" width="300" height="225"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dsd-cr-Pa1"/>
+        <segue reference="9Ub-cC-iUO"/>
+        <segue reference="h0x-uc-Wob"/>
         <segue reference="SbI-r7-gJr"/>
         <segue reference="et1-W7-hVD"/>
         <segue reference="amD-GZ-sb5"/>
