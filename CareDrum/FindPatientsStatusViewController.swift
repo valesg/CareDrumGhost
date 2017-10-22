@@ -41,7 +41,7 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
         
         var patientmainaddress: CLLocation?
         targetMainAddress.text = patientsomeaddress
-        geoWarningMessage.text = "ALERT: Person X now beyond set distance"
+        geoWarningMessage.text = "ALERT: ON/OFF"
         geocoder.geocodeAddressString(patientsomeaddress) { (placemarks, error) in
             if let placemarks = placemarks, placemarks.count > 0 {
                 patientmainaddress = placemarks.first?.location
@@ -52,6 +52,20 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
                 location.distance(from: patientmainaddress)
                 print(location.distance(from: patientmainaddress))
                 self.targetDistanceFromMainAddress.text = "\(location.distance(from: patientmainaddress) / 1000)"
+                
+                let targetAllowedDistanceInt: Int? = Int(self.targetAllowedDistance.text!)
+                let targetDistanceFromMainAddressInt = (location.distance(from: patientmainaddress) / 1000)
+                
+                print("Allowed Distance: \(targetAllowedDistanceInt), Current Distance as Integer: \(targetDistanceFromMainAddressInt), Current Distance as text \(self.targetDistanceFromMainAddress.text)")
+                
+                // Next If statement changes status logo based on distance
+                if Int(targetDistanceFromMainAddressInt) > targetAllowedDistanceInt! {
+                    self.targetStatusImage.image = UIImage(named: "SaidWhatLogo") }
+                    else {
+                        self.targetStatusImage.image = UIImage(named: "StatusOkLight")
+                    }
+                
+                
             } else {
                 self.targetDistanceFromMainAddress.text = "No Matching Location Found"
             }
@@ -64,7 +78,7 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
         
         targetStatusImage.image = UIImage(named: "SaidWhatLogo")
         geoWarningMessage.text = "All Good OR Alert"
-        targetAllowedDistance.text = "2 KM"
+        targetAllowedDistance.text = "2"
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
@@ -75,7 +89,7 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
 
     
     @IBAction func getTargetStatus(_ sender: Any) {
-        targetAllowedDistance.text = "2 KM"
+        targetAllowedDistance.text = "2"
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
