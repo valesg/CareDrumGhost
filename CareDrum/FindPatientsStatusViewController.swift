@@ -12,6 +12,7 @@ import CoreLocation
 
 class FindPatientsStatusViewController: UIViewController, CLLocationManagerDelegate {
 
+    @IBOutlet weak var targetStatusImage: UIImageView!
     @IBOutlet weak var targetOnMap: MKMapView!
     @IBOutlet weak var targetMainAddress: UITextField!
     @IBOutlet weak var targetAllowedDistance: UITextField!
@@ -60,7 +61,10 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        targetStatusImage.image = UIImage(named: "SaidWhatLogo")
+        geoWarningMessage.text = "All Good OR Alert"
+        targetAllowedDistance.text = "2 KM"
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
