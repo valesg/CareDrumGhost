@@ -41,7 +41,7 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
         
         var patientmainaddress: CLLocation?
         targetMainAddress.text = patientsomeaddress
-        geoWarningMessage.text = "ALERT: ON/OFF"
+        geoWarningMessage.text = "Status: GREEN or RED"
         geocoder.geocodeAddressString(patientsomeaddress) { (placemarks, error) in
             if let placemarks = placemarks, placemarks.count > 0 {
                 patientmainaddress = placemarks.first?.location
@@ -59,12 +59,13 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
                 print("Allowed Distance: \(targetAllowedDistanceInt), Current Distance as Integer: \(targetDistanceFromMainAddressInt), Current Distance as text \(self.targetDistanceFromMainAddress.text)")
                 
                 // Next If statement changes status logo based on distance
+                if targetAllowedDistanceInt != nil {
                 if Int(targetDistanceFromMainAddressInt) > targetAllowedDistanceInt! {
                     self.targetStatusImage.image = UIImage(named: "SaidWhatLogo") }
                     else {
                         self.targetStatusImage.image = UIImage(named: "StatusOkLight")
                     }
-                
+                }
                 
             } else {
                 self.targetDistanceFromMainAddress.text = "No Matching Location Found"
@@ -77,7 +78,8 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
         super.viewDidLoad()
         
         targetStatusImage.image = UIImage(named: "SaidWhatLogo")
-        geoWarningMessage.text = "All Good OR Alert"
+        
+        // geoWarningMessage.text = "Status: GREEN or RED"
         targetAllowedDistance.text = "2"
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -89,7 +91,6 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
 
     
     @IBAction func getTargetStatus(_ sender: Any) {
-        targetAllowedDistance.text = "2"
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()

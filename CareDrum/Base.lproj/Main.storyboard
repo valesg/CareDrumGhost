@@ -218,13 +218,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Rn-Ju-di2">
-                                <rect key="frame" x="217" y="614" width="114" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Rn-Ju-di2">
+                                <rect key="frame" x="141" y="604" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Find Patients">
-                                    <color key="titleColor" red="1" green="0.199773178" blue="0.15339230840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Find Patients"/>
                                 <connections>
                                     <segue destination="7EY-Zw-6qi" kind="show" id="Xaq-2W-Pcn"/>
                                 </connections>
@@ -322,15 +320,6 @@ Solution: We monitor the location of a care recipient and notify caregivers or r
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0i-Bn-KGV">
-                                <rect key="frame" x="16" y="599" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="7EY-Zw-6qi" kind="show" id="SbI-r7-gJr"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i62-Q3-OO2">
                                 <rect key="frame" x="28" y="108" width="111" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -371,28 +360,21 @@ Solution: We monitor the location of a care recipient and notify caregivers or r
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="irW-e3-vMr">
-                                <rect key="frame" x="3" y="429" width="372" height="162"/>
+                                <rect key="frame" x="3" y="393" width="372" height="162"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current location on map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DB-cd-8m3">
-                                <rect key="frame" x="26" y="393" width="185" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.32420210469999999" green="0.3377360297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="All Good vs. Alert" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CM2-Sw-EXq">
-                                <rect key="frame" x="159" y="130" width="133" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Status" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CM2-Sw-EXq">
+                                <rect key="frame" x="159" y="130" width="178" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eto-mR-o8c">
-                                <rect key="frame" x="200" y="598" width="163" height="33"/>
+                                <rect key="frame" x="6" y="563" width="363" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Try with new address"/>
+                                <state key="normal" title="Tip: Change Allowed Distance to change Status"/>
                                 <connections>
                                     <action selector="getTargetStatus:" destination="fHo-cV-C5k" eventType="touchUpInside" id="a1T-7V-xmn"/>
                                 </connections>
@@ -404,6 +386,15 @@ Solution: We monitor the location of a care recipient and notify caregivers or r
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0i-Bn-KGV">
+                                <rect key="frame" x="6" y="604" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="7EY-Zw-6qi" kind="show" id="SbI-r7-gJr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2Yj-85-1pO"/>
@@ -887,7 +878,7 @@ Solution: We monitor the location of a care recipient and notify caregivers or r
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Dsd-cr-Pa1"/>
-        <segue reference="Xaq-2W-Pcn"/>
+        <segue reference="SbI-r7-gJr"/>
         <segue reference="et1-W7-hVD"/>
         <segue reference="amD-GZ-sb5"/>
     </inferredMetricsTieBreakers>
