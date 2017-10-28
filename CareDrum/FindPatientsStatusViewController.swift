@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class FindPatientsStatusViewController: UIViewController, CLLocationManagerDelegate {
+class FindPatientsStatusViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var targetStatusImage: UIImageView!
     @IBOutlet weak var targetOnMap: MKMapView!
@@ -24,6 +24,7 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
     let patientsomeaddress:String = "280 Albert, Ottawa, Ontario, K1P 5G8";
     
     let geocoder = CLGeocoder()
+    
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
@@ -77,6 +78,7 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.targetAllowedDistance.delegate = self
         targetStatusImage.image = UIImage(named: "SaidWhatLogo")
         
         // geoWarningMessage.text = "Status: GREEN or RED"
@@ -97,6 +99,10 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
         manager.startUpdatingLocation()
     }
     
+    //Hide keyboard when user touches outside keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
