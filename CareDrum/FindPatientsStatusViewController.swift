@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
-
+import CloudKit
 
 
 
@@ -28,6 +28,9 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
     
     let publicDB = CKContainer.default().publicCloudDatabase
     let privateDB = CKContainer.default().privateCloudDatabase
+    
+    let firstName = "Guy"
+    let lastName = "Vales"
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
@@ -65,13 +68,15 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
                 
                 //Store LastKnownLocation.  Should be it's own function
                 let theRegistrant = CKRecord(recordType: "People")
-                print("FIRST: Show initial values of THE REGISTRANT: \(theRegistrant)")
-                theRegistrant.setValue("Guy", forKey: "FirstName")
-                theRegistrant.setValue("Vales", forKey: "LastName")
-                theRegistrant.setValue(myLastKnownLocation, forKey: "PersonLocation")
-                print("SECOND: Show assigned values of THE REGISTRANT: \(theRegistrant)")
+                print("FIRST: Show initial values of PEOPLE REGISTRANT: \(theRegistrant)")
+                theRegistrant.setValue(self.firstName, forKey: "FirstName")
+                theRegistrant.setValue(self.lastName, forKey: "LastName")
+                 print("SECOND: Show assigned values of PEOPLE REGISTRANT: \(theRegistrant)")
+                // theRegistrant.setValue(myLastKnownLocation.latitude, forKey: "PersonLocation")
+                theRegistrant.setValue(myLastKnownLocation.longitude, forKey: "PersonLocation")
+                print("THIRD: Show assigned values of PEOPLE REGISTRANT: \(theRegistrant)")
                 
-                publicDB.save(theRegistrant) { (record, _) in
+                self.publicDB.save(theRegistrant) { (record, _) in
                     //    print("Error is: \(error)")
                     guard record != nil else { print("The record is: \(String(describing: record))")
                         return}
@@ -111,7 +116,9 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         
+        
         // Do any additional setup after loading the view.
+        // CKContainer.default().fetchUserRecordID(completionHandler: <#T##(CKRecordID?, Error?) -> Void#>)
     }
 
     @IBAction func storeLastKnownLocation(_ sender: Any) {
@@ -141,6 +148,8 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

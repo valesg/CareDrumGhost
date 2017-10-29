@@ -733,6 +733,7 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Submit Care Request"/>
                                 <connections>
+                                    <action selector="storeCareRequest:" destination="MzK-j1-UxU" eventType="touchUpInside" id="Yru-4b-nEn"/>
                                     <segue destination="pLv-hr-o6e" kind="show" identifier="tosuggestedcaregiver" id="vbb-ly-qrx"/>
                                 </connections>
                             </button>
@@ -770,7 +771,12 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                         <viewLayoutGuide key="safeArea" id="ng1-yW-8OK"/>
                     </view>
                     <connections>
+                        <outlet property="careRequestPatientID" destination="4RB-za-MSj" id="loU-pD-a1K"/>
+                        <outlet property="careRequestPatientIDValue" destination="mXc-L1-Ivy" id="0XG-ql-Y80"/>
+                        <outlet property="careRequestServiceTime" destination="s6I-B4-VXb" id="v1b-1u-O7o"/>
+                        <outlet property="careRequestorID" destination="VCL-0C-NM8" id="cCb-l1-QUb"/>
                         <outlet property="requestedServicePicker" destination="0Pm-jB-7ph" id="4o9-S2-1Ux"/>
+                        <outlet property="requestorID" destination="sbd-Jj-p0k" id="IIq-Ft-DGl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mza-wt-sWM" userLabel="First Responder" sceneMemberID="firstResponder"/>
