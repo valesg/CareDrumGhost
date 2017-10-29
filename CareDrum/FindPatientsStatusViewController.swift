@@ -10,6 +10,9 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
+
+
 class FindPatientsStatusViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var targetStatusImage: UIImageView!
@@ -20,16 +23,18 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
     @IBOutlet weak var geoWarningMessage: UITextField!
     
     let manager = CLLocationManager()
-    
     let patientsomeaddress:String = "280 Albert, Ottawa, Ontario, K1P 5G8";
-    
     let geocoder = CLGeocoder()
     
-    
+    let publicDB = CKContainer.default().publicCloudDatabase
+    let privateDB = CKContainer.default().privateCloudDatabase
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         let location = locations[0]
+        let myLastKnownLocation = location.coordinate
+        print("My Last Long/Lat is: \(myLastKnownLocation)")
+        
         
         let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
         let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude,location.coordinate.longitude)
@@ -37,8 +42,9 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
         targetOnMap.setRegion(region, animated: true)
         self.targetOnMap.showsUserLocation = true
         
-        location.distance(from:)
-        targetDistanceFromMainAddress.text="100 meters from Home"
+        // Not required or in use
+        // location.distance(from:)
+        // targetDistanceFromMainAddress.text="100 meters from Home"
         
         var patientmainaddress: CLLocation?
         targetMainAddress.text = patientsomeaddress
@@ -57,7 +63,24 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
                 let targetAllowedDistanceInt: Double? = Double(self.targetAllowedDistance.text!)
                 let targetDistanceFromMainAddressInt = (location.distance(from: patientmainaddress) / 1000)
                 
+                //Store LastKnownLocation.  Should be it's own function
+                let theRegistrant = CKRecord(recordType: "People")
+                print("FIRST: Show initial values of THE REGISTRANT: \(theRegistrant)")
+                theRegistrant.setValue("Guy", forKey: "FirstName")
+                theRegistrant.setValue("Vales", forKey: "LastName")
+                theRegistrant.setValue(myLastKnownLocation, forKey: "PersonLocation")
+                print("SECOND: Show assigned values of THE REGISTRANT: \(theRegistrant)")
+                
+                publicDB.save(theRegistrant) { (record, _) in
+                    //    print("Error is: \(error)")
+                    guard record != nil else { print("The record is: \(String(describing: record))")
+                        return}
+                    print("Print recond saved")
+                }
+                
+                // Print some info
                 print("Allowed Distance: \(targetAllowedDistanceInt), Current Distance as Integer: \(targetDistanceFromMainAddressInt), Current Distance as text \(self.targetDistanceFromMainAddress.text)")
+                
                 
                 // Next If statement changes status logo based on distance
                 if targetAllowedDistanceInt != nil {
@@ -91,6 +114,21 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func storeLastKnownLocation(_ sender: Any) {
+        let theRegistrant = CKRecord(recordType: "People")
+        print("FIRST: Show initial values of THE REGISTRANT: \(theRegistrant)")
+        theRegistrant.setValue("Guy", forKey: "FirstName")
+        theRegistrant.setValue("Vales", forKey: "LastName")
+        theRegistrant.setValue(patientsomeaddress, forKey: "PersonLocation")
+        print("SECOND: Show assigned values of THE REGISTRANT: \(theRegistrant)")
+        
+        publicDB.save(theRegistrant) { (record, _) in
+            //    print("Error is: \(error)")
+            guard record != nil else { print("The record is: \(String(describing: record))")
+                return}
+            print("Print recond saved")
+        }
+    }
     
     @IBAction func getTargetStatus(_ sender: Any) {
         manager.delegate = self
