@@ -9,12 +9,13 @@
 import UIKit
 import CloudKit
 
-class CareRequestViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class CareRequestViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var requestorID: UILabel!
     @IBOutlet weak var careRequestorID: UITextField!
     @IBOutlet weak var careRequestPatientID: UILabel!
     @IBOutlet weak var careRequestPatientIDValue: UITextField!
+    @IBOutlet weak var careRequestPatientAddress: UITextField!
     @IBOutlet weak var careRequestServiceTime: UIDatePicker!
     @IBOutlet weak var requestedServicePicker: UIPickerView!
     var chosenCare: String = ""
@@ -23,6 +24,7 @@ class CareRequestViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     let publicDB = CKContainer.default().publicCloudDatabase
     let privateDB = CKContainer.default().privateCloudDatabase
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -45,6 +47,9 @@ class CareRequestViewController: UIViewController, UIPickerViewDataSource, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.careRequestorID.delegate = self
+        self.careRequestPatientIDValue.delegate = self
+        self.careRequestPatientAddress.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -67,6 +72,11 @@ class CareRequestViewController: UIViewController, UIPickerViewDataSource, UIPic
                 return}
             print("Print CAREREQUEST recond saved")
         }
+    }
+    
+    //Hide keyboard when user touches outside keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
