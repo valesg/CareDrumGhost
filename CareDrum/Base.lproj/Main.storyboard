@@ -457,7 +457,7 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First name" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S69-DR-TwU">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Last name" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S69-DR-TwU">
                                 <rect key="frame" x="34" y="250" width="190" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -491,13 +491,6 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Number of Years" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UiI-iy-Lb7">
-                                <rect key="frame" x="34" y="474" width="149" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Address" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zOJ-DQ-aSu">
                                 <rect key="frame" x="34" y="285" width="190" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -527,11 +520,23 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0-6 mo, less than 1 yr, 1-2 yr ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIQ-HV-QyH">
+                                <rect key="frame" x="43" y="474" width="237" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zT1-Tx-HAr"/>
                     </view>
                     <connections>
+                        <outlet property="addressPrimary" destination="zOJ-DQ-aSu" id="acR-Vb-m1d"/>
+                        <outlet property="cprTraining" destination="4rn-ja-hPD" id="ow3-GQ-X3u"/>
+                        <outlet property="firstName" destination="6vR-bW-3fV" id="ZNS-Rn-fbW"/>
+                        <outlet property="handlingTraining" destination="Iuu-Wf-Sur" id="zwt-CF-QDm"/>
+                        <outlet property="lastName" destination="S69-DR-TwU" id="Fmu-KE-kdG"/>
                         <outlet property="nonLicencedLabel" destination="WBk-Wd-hiE" id="ov8-oh-JGp"/>
                     </connections>
                 </viewController>
@@ -893,10 +898,9 @@ Solution: We monitor the location of care recipients and notify caregivers or re
         <image name="PatientGeolocation.jpg" width="300" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cNh-3v-sg0"/>
         <segue reference="h0x-uc-Wob"/>
         <segue reference="SbI-r7-gJr"/>
-        <segue reference="grO-XB-gzD"/>
+        <segue reference="6bv-Il-4PX"/>
         <segue reference="FUi-71-Cr2"/>
     </inferredMetricsTieBreakers>
 </document>

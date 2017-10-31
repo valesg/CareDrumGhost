@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var registerAll: UIButton!
     @IBOutlet weak var firstName: UITextField!
@@ -23,6 +23,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Prepping so that clicking on screen will hide keyboard
+        self.addressPrimary.delegate = self
+        self.firstName.delegate = self
+        self.lastName.delegate = self
+        self.addressPrimary.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
     
        
@@ -54,6 +61,11 @@ class ViewController: UIViewController {
     
   @IBAction func addServiceRequest(_ sender: Any) {
         print("In Add Service Request")
+    }
+    
+    //Hide keyboard when user touches outside keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     

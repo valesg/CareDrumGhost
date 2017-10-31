@@ -8,19 +8,35 @@
 
 import UIKit
 
-class SignViewController: UIViewController {
+class SignViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nonLicencedLabel: UITextField!
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var addressPrimary: UITextField!
+    @IBOutlet weak var cprTraining: UISwitch!
+    @IBOutlet weak var handlingTraining: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Prepping so that clicking on screen will hide keyboard
+        self.addressPrimary.delegate = self
+        self.firstName.delegate = self
+        self.lastName.delegate = self
+        self.addressPrimary.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
     override func viewDidAppear(_ animated: Bool) {
         nonLicencedLabel.text = "DYNAMIC: Sign Up for Non-Licensed Caregivers"
 
+    }
+    
+    //Hide keyboard when user touches outside keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {

@@ -47,9 +47,11 @@ class CareRequestViewController: UIViewController, UIPickerViewDataSource, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Prepping so that clicking on screen will hide keyboard
         self.careRequestorID.delegate = self
         self.careRequestPatientIDValue.delegate = self
         self.careRequestPatientAddress.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
