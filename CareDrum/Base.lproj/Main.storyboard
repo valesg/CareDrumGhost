@@ -38,19 +38,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Tl-lU-WBF">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Account Sign Up" id="qfZ-yn-68q">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="esB-Cr-n75">
-                                            <connections>
-                                                <action selector="addServiceRequest:" destination="BYZ-38-t0r" id="hCn-iW-SZg"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="License Number" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oOU-QV-oyG">
                                 <rect key="frame" x="56" y="136" width="185" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -122,6 +109,19 @@
                                     <segue destination="Mr8-Sn-4Tc" kind="show" id="cNh-3v-sg0"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Tl-lU-WBF">
+                                <rect key="frame" x="0.0" y="15" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Account Sign Up" id="qfZ-yn-68q">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="esB-Cr-n75">
+                                            <connections>
+                                                <action selector="addServiceRequest:" destination="BYZ-38-t0r" id="hCn-iW-SZg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kBc-mB-3GM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="-1" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.72051864290000001" green="0.82435788269999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="1" green="0.199773178" blue="0.15339230840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -167,16 +167,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZt-8j-Cvw">
-                                <rect key="frame" x="141" y="567" width="197" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Create Care Request"/>
-                                <connections>
-                                    <action selector="careRequest:" destination="10I-YF-WzS" eventType="touchUpInside" id="Kff-0p-ZZK"/>
-                                    <segue destination="MzK-j1-UxU" kind="show" identifier="coptoreq" id="Dsd-cr-Pa1"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="recentcare" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gsl-sR-0gP">
                                 <rect key="frame" x="-1" y="245" width="375" height="294"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
@@ -219,12 +209,22 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Rn-Ju-di2">
-                                <rect key="frame" x="141" y="604" width="114" height="30"/>
+                                <rect key="frame" x="19" y="573" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Find Patients"/>
                                 <connections>
                                     <segue destination="7EY-Zw-6qi" kind="show" id="Xaq-2W-Pcn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZt-8j-Cvw">
+                                <rect key="frame" x="162" y="569" width="177" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="New Care Request"/>
+                                <connections>
+                                    <action selector="careRequest:" destination="10I-YF-WzS" eventType="touchUpInside" id="Kff-0p-ZZK"/>
+                                    <segue destination="MzK-j1-UxU" kind="show" identifier="coptoreq" id="Dsd-cr-Pa1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -264,13 +264,6 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XEa-TA-Dpz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="About Find Patients" id="DMe-1W-MOZ"/>
-                                </items>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAl-p5-vCd">
                                 <rect key="frame" x="68" y="505" width="238" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -293,6 +286,13 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                     <segue destination="10I-YF-WzS" kind="show" id="et1-W7-hVD"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XEa-TA-Dpz">
+                                <rect key="frame" x="0.0" y="13" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="About Find Patients" id="DMe-1W-MOZ"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Tfe-Pe-sW1"/>
@@ -310,13 +310,6 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WY2-b3-ROV">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Location Status" id="N4s-ah-sON"/>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find Patients - LOCATION STATUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9e-PA-d2z">
                                 <rect key="frame" x="16" y="77" width="294" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -401,6 +394,13 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                     <action selector="storeLastKnownLocation:" destination="fHo-cV-C5k" eventType="touchUpInside" id="PGL-gz-tKS"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WY2-b3-ROV">
+                                <rect key="frame" x="0.0" y="14" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Location Status" id="N4s-ah-sON"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2Yj-85-1pO"/>
@@ -435,7 +435,7 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XRf-8r-vj5">
-                                <rect key="frame" x="32" y="90" width="314" height="97.5"/>
+                                <rect key="frame" x="34" y="106" width="314" height="97.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Non-licensed caregivers  such as Personal Support Workers  sign up by providing identification,  experience, education information</string>
@@ -507,19 +507,12 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdI-pz-qha">
-                                <rect key="frame" x="0.0" y="-7" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="15" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Sign Up Non-Licensed" id="yB7-yr-Gso"/>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Non-Licensed Caregivers Sign up" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WBk-Wd-hiE">
-                                <rect key="frame" x="34" y="59" width="314" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0-6 mo, less than 1 yr, 1-2 yr ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIQ-HV-QyH">
                                 <rect key="frame" x="43" y="474" width="237" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -527,6 +520,13 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Non-Licensed Caregivers Sign up" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WBk-Wd-hiE">
+                                <rect key="frame" x="34" y="75" width="314" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zT1-Tx-HAr"/>
@@ -638,7 +638,7 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                 <nil key="highlightedColor"/>
                             </label>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zcx-zh-aXt">
-                                <rect key="frame" x="-7" y="-7" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="14" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Settings" id="1z9-ds-TDi"/>
@@ -758,7 +758,7 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sFg-yS-xSs">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="14" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Care Request" id="FcW-QT-3DT"/>
@@ -874,7 +874,7 @@ Solution: We monitor the location of care recipients and notify caregivers or re
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkh-SY-rRs">
-                                <rect key="frame" x="-1" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="13" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Suggested Caregivers" id="veJ-dU-rZd"/>
@@ -898,9 +898,11 @@ Solution: We monitor the location of care recipients and notify caregivers or re
         <image name="PatientGeolocation.jpg" width="300" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="vbb-ly-qrx"/>
+        <segue reference="cNh-3v-sg0"/>
         <segue reference="h0x-uc-Wob"/>
         <segue reference="SbI-r7-gJr"/>
-        <segue reference="6bv-Il-4PX"/>
+        <segue reference="Vme-7M-hX0"/>
         <segue reference="FUi-71-Cr2"/>
     </inferredMetricsTieBreakers>
 </document>
