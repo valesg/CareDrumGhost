@@ -72,10 +72,15 @@ class FindPatientsStatusViewController: UIViewController, CLLocationManagerDeleg
                 theRegistrant.setValue(self.firstName, forKey: "FirstName")
                 theRegistrant.setValue(self.lastName, forKey: "LastName")
                  print("SECOND: Show assigned values of PEOPLE REGISTRANT: \(theRegistrant)")
-                // theRegistrant.setValue(myLastKnownLocation.latitude, forKey: "PersonLocation")
-                theRegistrant.setValue(myLastKnownLocation.longitude, forKey: "PersonLocation")
+                
+                // Attempting to store location value in CareRequest Record Type
+                // theRegistrant.setValue(myLastKnownLocation.latitude, forKey: "PersonLocation.latitude")
+                // theRegistrant.setValue(myLastKnownLocation.longitude, forKey: "PersonLocation.longitude")
+                theRegistrant.setObject(myLastKnownLocation as? CKRecordValue, forKey: "PersonLocation")
+                // theRegistrant.setValue(myLastKnownLocation, forKey: "PersonLocation")
                 print("THIRD: Show assigned values of PEOPLE REGISTRANT: \(theRegistrant)")
                 
+                // Saving the record in CareRequest Record Type
                 self.publicDB.save(theRegistrant) { (record, _) in
                     //    print("Error is: \(error)")
                     guard record != nil else { print("The record is: \(String(describing: record))")
