@@ -76,21 +76,17 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
             let expense = newExpenses(CareRequestID: CareRequestID, RequestorID: RequestorID, PatientID: PatientID, ServiceTime: ServiceTime)
             newExpenses.append(expense)
         }
-        
-         publicDB.add(myQueryOp)
+        publicDB.add(myQueryOp)
         
         myQueryOp.queryCompletionBlock = { (records, error) in
             guard let records = records else {return }
-            
             DispatchQueue.main.async {
                 print("The records are: \(records)")
                 print("I made it to the Query Completion Block")
             }
-
         }
-        
-
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
