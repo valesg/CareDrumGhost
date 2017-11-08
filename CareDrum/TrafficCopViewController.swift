@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-var onduty = "yes"
+var onDuty = "yes"
 
 class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -55,7 +55,7 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func queryRecentCareRequests(personID: String) -> Void {
         let myPredicate = NSPredicate(format: "PatientID == %@", "PID-100")
-        let mySort = NSSortDescriptor(key: "PatientID", ascending: true)
+        let mySort = NSSortDescriptor(key: "ServiceTime", ascending: true)
         let myQuery = CKQuery(recordType: "CareRequest", predicate: myPredicate)
         myQuery.sortDescriptors = [mySort]
         
@@ -65,7 +65,7 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
         // querysortDescriptors = [] /* find out */
         print("Parameter personID \(personID) from ViewDidLoad to queryRecentCareRequests")
         
-        var newExpenses = [Expense]()
+        var newExpenses = [String]()
         
         myQueryOp.recordFetchedBlock = { (record) in
             let recordID = record.recordID
@@ -73,15 +73,16 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
             let RequestorID = record["RequestorID"] as! String
             let PatientID = record["PatientID"] as! String
             let ServiceTime = record["ServiceTime"] as! NSDate
-            let expense = newExpenses(CareRequestID: CareRequestID, RequestorID: RequestorID, PatientID: PatientID, ServiceTime: ServiceTime)
-            newExpenses.append(expense)
+            // let expense = newExpenses(CareRequestID: CareRequestID, RequestorID: RequestorID, PatientID: PatientID, ServiceTime: ServiceTime)
+            // newExpenses.append(CareRequestID, RequestorID, PatientID)
+            // newExpenses.append(expense)
         }
         publicDB.add(myQueryOp)
         
-        myQueryOp.queryCompletionBlock = { (records, error) in
-            guard let records = records else {return }
+        myQueryOp.queryCompletionBlock = { (cursor, error) in
+            guard let cursor = cursor else {return }
             DispatchQueue.main.async {
-                print("The records are: \(records)")
+                print("The records are: \(cursor)")
                 print("I made it to the Query Completion Block")
             }
         }
