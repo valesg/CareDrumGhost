@@ -76,6 +76,7 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
             self.myRecentCareRequests.append(record)
             DispatchQueue.main.async {
                 print(" Within recordFetchedBlock: \(self.myRecentCareRequests)")
+                print("Invidual field: CareRequestID is: \(CareRequestID)")
             }
         }
         
