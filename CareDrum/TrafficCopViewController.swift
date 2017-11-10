@@ -16,8 +16,6 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var recentCareRequestsTable: UITableView!
     
     var myRecentCareRequests = [CKRecord]()
-   
-    var wCareRequestID = ""
     
     let recentcarerequests = ["Requestor1, S1 on Date X, PENDING", "Requestor1, S8 on Date X, PENDING", "Requestor1, S7 on Date X, DONE", "Requestor2, S2 on Date X, DONE", "Requestor3, S3 on Date X, DONE", "Requestor4, S4 on Date X, CANCELLED", "Requestor4, S7 on Date X, DONE", "Requestor5, S8 on Date X, DONE"]
     
@@ -65,46 +63,32 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
         let myQueryOp = CKQueryOperation(query: myQuery)
         myQueryOp.desiredKeys = ["CareRequestID", "RequestorID", "PatientID", "ServiceTime"]
         myQueryOp.resultsLimit = 100
-       
-        print("Parameter personID to QueryRecentCareRequests Function: \(personID)")
         
-        var retrievedCareRequests = [String]()
-        retrievedCareRequests = ["AAAA"]
-        
-        
+        // Remember that CloudKit does not return fields with no values
         
         myQueryOp.recordFetchedBlock = { (record) in
-            //let recordID = record.recordID
-            //let CareRequestID = record["CareRequestID"] as! String
-            //let RequestorID = record["RequestorID"] as! String
-            //let PatientID = record["PatientID"] as! String
-            //let ServiceTime = record["ServiceTime"] as! NSDate
+            let recordID = record.recordID
+            let CareRequestID = record["CareRequestID"] as! String
+            let RequestorID = record["RequestorID"] as! String
+            let PatientID = record["PatientID"] as! String
+            let ServiceTime = record["ServiceTime"] as! NSDate
             
             self.myRecentCareRequests.append(record)
             DispatchQueue.main.async {
                 print(" Within recordFetchedBlock: \(self.myRecentCareRequests)")
             }
-            
-            
         }
         
-        retrievedCareRequests.append("\(careRequest)")
         publicDB.add(myQueryOp)
-        
-        // print("Outside recordFetchedBlock: \(self.myRecentCareRequests)")
-        // print("Outside query Completion Block: Retrieved Care Requests is: \(retrievedCareRequests.count) AND \(retrievedCareRequests) AND \(wCareRequestID)")
-        
         
         myQueryOp.queryCompletionBlock = { (cursor, error) in
             guard let cursor = cursor else { return }
             DispatchQueue.main.async {
-                print("The records are: \(cursor)")
+                print("More records to retrieve, see curor: \(cursor)")
                 print("I made it to the Query Completion Block")
-                print("Within Query completion block: My Retrieved Care Requests: \(retrievedCareRequests)")
             }
         }
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
