@@ -17,7 +17,7 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var myRecentCareRequests = [CKRecord]()
     
-    let recentcarerequests = ["Requestor1, S1 on Date X, PENDING", "Requestor1, S8 on Date X, PENDING", "Requestor1, S7 on Date X, DONE", "Requestor2, S2 on Date X, DONE", "Requestor3, S3 on Date X, DONE", "Requestor4, S4 on Date X, CANCELLED", "Requestor4, S7 on Date X, DONE", "Requestor5, S8 on Date X, DONE"]
+    var recentcarerequests = ["Requestor1, S1 on Date X, PENDING", "Requestor1, S8 on Date X, PENDING", "Requestor1, S7 on Date X, DONE", "Requestor2, S2 on Date X, DONE", "Requestor3, S3 on Date X, DONE", "Requestor4, S4 on Date X, CANCELLED", "Requestor4, S7 on Date X, DONE", "Requestor5, S8 on Date X, DONE"]
     
     let publicDB = CKContainer.default().publicCloudDatabase
     let privateDB = CKContainer.default().privateCloudDatabase
@@ -56,12 +56,13 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
     func queryRecentCareRequests(personID: String) -> Void {
         let myPredicate = NSPredicate(format: "PatientID == %@", personID)
         //let myPredicate = NSPredicate(value: true)
-        //let mySort = NSSortDescriptor(key: "ServiceTime", ascending: true)
+        let mySort = NSSortDescriptor(key: "CareRequestID", ascending: true)
         let myQuery = CKQuery(recordType: "CareRequest", predicate: myPredicate)
-        //myQuery.sortDescriptors = [mySort]
+        // For Sorts, ensure that the fields are indexed sortable
+        myQuery.sortDescriptors = [mySort]
         
         let myQueryOp = CKQueryOperation(query: myQuery)
-        myQueryOp.desiredKeys = ["CareRequestID", "RequestorID", "PatientID", "ServiceTime"]
+        myQueryOp.desiredKeys = ["CareRequestID", "RequestorID", "PatientID", "ServiceName", "ServiceTime", "Status"]
         myQueryOp.resultsLimit = 100
         
         // Remember that CloudKit does not return fields with no values
@@ -72,11 +73,17 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
             let RequestorID = record["RequestorID"] as! String
             let PatientID = record["PatientID"] as! String
             let ServiceTime = record["ServiceTime"] as! NSDate
-            
+            let Status = record["Status"] as! String
+            let ServiceName = record["ServiceName"] as! String
             self.myRecentCareRequests.append(record)
+            
+            // trying to add rows to the tableview
+            // self.recentcarerequests.append("CELL CareRequestID is: \(CareRequestID)")
+            
+            
             DispatchQueue.main.async {
                 print(" Within recordFetchedBlock: \(self.myRecentCareRequests)")
-                print("Invidual field: CareRequestID is: \(CareRequestID)")
+                print("Invidual field: CareRequestID is: \(CareRequestID), Status is: \(Status), ServiceName is: \(ServiceName)")
             }
         }
         
