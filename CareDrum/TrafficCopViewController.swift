@@ -16,6 +16,8 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var recentCareRequestsTable: UITableView!
     
     var myRecentCareRequests = [CKRecord]()
+    var zrecentCareRequests = [CareRequestsRow]()
+    
     
     var recentcarerequests = ["Requestor1, S1 on Date X, PENDING", "Requestor1, S8 on Date X, PENDING", "Requestor1, S7 on Date X, DONE", "Requestor2, S2 on Date X, DONE", "Requestor3, S3 on Date X, DONE", "Requestor4, S4 on Date X, CANCELLED", "Requestor4, S7 on Date X, DONE", "Requestor5, S8 on Date X, DONE"]
     
@@ -24,12 +26,26 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return(recentcarerequests.count)
+        // return(recentcarerequests.count)
+        return(zrecentCareRequests.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "recentcare")
-        cell.textLabel?.text = recentcarerequests[indexPath.row]
+        // let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "recentcare")
+        // cell.textLabel?.text = recentcarerequests[indexPath.row]
+        // return(cell)
+        
+        let cellIdentifier = "CareRequestsTableViewCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CareRequestsTableViewCell else {
+            fatalError("The dequeued cell is not an instance of CareRequestsTableViewCell")
+        }
+        
+        
+        let aRow = zrecentCareRequests[indexPath.row]
+        cell.requestorIDLabel.text = aRow.requestorID
+        cell.patientIDlabel.text = aRow.patientID
+        // cell.serviceTimeLabel.text = aRow.serviceTime
+        
         return(cell)
     }
     
@@ -77,6 +93,9 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
             let ServiceName = record["ServiceName"] as! String
             self.myRecentCareRequests.append(record)
             
+            let photo1 = UIImage(named: "StatusOkLight")
+            let zRow = CareRequestsRow(photo: photo1, requestorID: RequestorID, patientID: PatientID, careStatus: Status, serviceTime: ServiceTime)
+            self.zrecentCareRequests.append(zRow!)
             // trying to add rows to the tableview
             // self.recentcarerequests.append("CELL CareRequestID is: \(CareRequestID)")
             

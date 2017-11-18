@@ -21,6 +21,7 @@
 		E93EC2741F959A0E0085B19E /* SuggestedCaregiversViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EC2731F959A0E0085B19E /* SuggestedCaregiversViewController.swift */; };
 		E95D9D781FB3F4790071C862 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E95D9D771FB3F4790071C862 /* CloudKit.framework */; };
 		E95D9D7A1FBA739A0071C862 /* CareRequestsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D9D791FBA739A0071C862 /* CareRequestsRow.swift */; };
+		E95D9D7C1FBE84B20071C862 /* CareRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D9D7B1FBE84B20071C862 /* CareRequestsTableViewCell.swift */; };
 		E96503C61F9B967A00112BE6 /* FindPatientsStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96503C51F9B967A00112BE6 /* FindPatientsStatusViewController.swift */; };
 		E96503C81F9BC72200112BE6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96503C71F9BC70300112BE6 /* CoreLocation.framework */; };
 		E96503CA1F9C5D9B00112BE6 /* StatusOkLight in Resources */ = {isa = PBXBuildFile; fileRef = E96503C91F9C5D9B00112BE6 /* StatusOkLight */; };
@@ -67,6 +68,7 @@
 		E93EC2731F959A0E0085B19E /* SuggestedCaregiversViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCaregiversViewController.swift; sourceTree = "<group>"; };
 		E95D9D771FB3F4790071C862 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		E95D9D791FBA739A0071C862 /* CareRequestsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareRequestsRow.swift; sourceTree = "<group>"; };
+		E95D9D7B1FBE84B20071C862 /* CareRequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareRequestsTableViewCell.swift; sourceTree = "<group>"; };
 		E96503C51F9B967A00112BE6 /* FindPatientsStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPatientsStatusViewController.swift; sourceTree = "<group>"; };
 		E96503C71F9BC70300112BE6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E96503C91F9C5D9B00112BE6 /* StatusOkLight */ = {isa = PBXFileReference; lastKnownFileType = file; path = StatusOkLight; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				E934BE5A1F8BFC18003CA990 /* CareDrum.entitlements */,
 				E934BE2C1F8BFBF2003CA990 /* AppDelegate.swift */,
 				E95D9D791FBA739A0071C862 /* CareRequestsRow.swift */,
+				E95D9D7B1FBE84B20071C862 /* CareRequestsTableViewCell.swift */,
 				E93EC26F1F94F79D0085B19E /* TrafficCopViewController.swift */,
 				E934BE2E1F8BFBF2003CA990 /* ViewController.swift */,
 				E93EC26B1F94F46D0085B19E /* SignViewController.swift */,
@@ -326,6 +329,7 @@
 				E93EC26C1F94F46D0085B19E /* SignViewController.swift in Sources */,
 				E96503C61F9B967A00112BE6 /* FindPatientsStatusViewController.swift in Sources */,
 				E934BE2D1F8BFBF2003CA990 /* AppDelegate.swift in Sources */,
+				E95D9D7C1FBE84B20071C862 /* CareRequestsTableViewCell.swift in Sources */,
 				E93EC2701F94F79D0085B19E /* TrafficCopViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
