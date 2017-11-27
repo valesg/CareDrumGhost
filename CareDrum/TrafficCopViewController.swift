@@ -18,9 +18,6 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
     var myRecentCareRequests = [CKRecord]()
     var zrecentCareRequests = [CareRequestsRow]()
     
-    
-    var recentcarerequests = ["Requestor1, S1 on Date X, PENDING", "Requestor1, S8 on Date X, PENDING", "Requestor1, S7 on Date X, DONE", "Requestor2, S2 on Date X, DONE", "Requestor3, S3 on Date X, DONE", "Requestor4, S4 on Date X, CANCELLED", "Requestor4, S7 on Date X, DONE", "Requestor5, S8 on Date X, DONE"]
-    
     let publicDB = CKContainer.default().publicCloudDatabase
     let privateDB = CKContainer.default().privateCloudDatabase
     
@@ -49,10 +46,6 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.patientIDlabel.text = aRow.patientID
         cell.serviceNameLabel.text = aRow.serviceName
         cell.serviceTimeLabel.text = "STime"
-        
-        // DispatchQueue.main.async {
-        //    print("FROM THE TABLEVIEW \(String(describing: cell.patientIDlabel.text)), and \(aRow)")
-        // }
         
         return(cell)
     }
