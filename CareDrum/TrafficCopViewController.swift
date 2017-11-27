@@ -27,6 +27,7 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return(recentcarerequests.count)
+        print("Number of rows in the table: \(zrecentCareRequests.count)")
         return(zrecentCareRequests.count)
     }
     
@@ -34,17 +35,24 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
         // let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "recentcare")
         // cell.textLabel?.text = recentcarerequests[indexPath.row]
         // return(cell)
-        
+        print("kkkkkkkkk In TableView before assigning values to cell items")
         let cellIdentifier = "CareRequestsTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CareRequestsTableViewCell else {
             fatalError("The dequeued cell is not an instance of CareRequestsTableViewCell")
         }
         
-        
         let aRow = zrecentCareRequests[indexPath.row]
+        
         cell.requestorIDLabel.text = aRow.requestorID
+        print("AROW requestortID is: \(aRow.requestorID)")
+        
         cell.patientIDlabel.text = aRow.patientID
-        // cell.serviceTimeLabel.text = aRow.serviceTime
+        cell.serviceNameLabel.text = aRow.serviceName
+        cell.serviceTimeLabel.text = "STime"
+        
+        // DispatchQueue.main.async {
+        //    print("FROM THE TABLEVIEW \(String(describing: cell.patientIDlabel.text)), and \(aRow)")
+        // }
         
         return(cell)
     }
@@ -55,8 +63,11 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
         setupNavBar()
         // Do any additional setup after loading the view.
         queryRecentCareRequests(personID: "PID-111")
+        print("POST QUERY of RECENT CARE REQUESTS")
+        
     }
 
+    
     func setupNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -93,16 +104,17 @@ class TrafficCopViewController: UIViewController, UITableViewDelegate, UITableVi
             let ServiceName = record["ServiceName"] as! String
             self.myRecentCareRequests.append(record)
             
-            let photo1 = UIImage(named: "StatusOkLight")
-            let zRow = CareRequestsRow(photo: photo1, requestorID: RequestorID, patientID: PatientID, careStatus: Status, serviceTime: ServiceTime)
-            self.zrecentCareRequests.append(zRow!)
             // trying to add rows to the tableview
-            // self.recentcarerequests.append("CELL CareRequestID is: \(CareRequestID)")
-            
+            let photo1 = UIImage(named: "StatusOkLight")
+            let zRow = CareRequestsRow(photo: photo1, requestorID: RequestorID, patientID: PatientID, careStatus: Status, serviceName: ServiceName, serviceTime: ServiceTime)
+            self.zrecentCareRequests.append(zRow!)
             
             DispatchQueue.main.async {
+                self.recentCareRequestsTable.reloadData()
                 print(" Within recordFetchedBlock: \(self.myRecentCareRequests)")
-                print("Invidual field: CareRequestID is: \(CareRequestID), Status is: \(Status), ServiceName is: \(ServiceName)")
+                print("Individual field: CareRequestID is: \(CareRequestID), Status is: \(Status), ServiceName is: \(ServiceName)")
+                print("zRow is: \(zRow?.requestorID)")
+                print("Count of Z array: \(self.zrecentCareRequests.count)")
             }
         }
         

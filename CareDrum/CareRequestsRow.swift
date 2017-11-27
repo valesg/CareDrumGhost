@@ -14,11 +14,12 @@ class CareRequestsRow {
     var requestorID: String
     var patientID: String
     var careStatus: String
+    var serviceName: String
     var serviceTime: NSDate
 
 //MARK: Initialization
 
-init?(photo: UIImage?, requestorID: String, patientID: String, careStatus: String, serviceTime: NSDate) {
+    init?(photo: UIImage?, requestorID: String, patientID: String, careStatus: String, serviceName: String, serviceTime: NSDate) {
     
     // Initialization should fail if the value of the properties are invalid
     if requestorID.isEmpty || patientID.isEmpty || careStatus.isEmpty {
@@ -30,6 +31,7 @@ init?(photo: UIImage?, requestorID: String, patientID: String, careStatus: Strin
     self.requestorID = requestorID
     self.patientID = patientID
     self.careStatus = careStatus
+    self.serviceName = serviceName
     self.serviceTime = serviceTime
 }
     
